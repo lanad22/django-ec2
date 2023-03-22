@@ -12,34 +12,18 @@
     <div class="offset-md-2 col-lg-9">
       <div class="page-header">
         <h1>
-          Todo List
+          My Todo List
         </h1>
       </div>
     </div>
   </div>
 
   <!-- Add a todo row -->
-  <div class="row">
-    <div class="offset-md-2 col-lg-9">
-      <form method="post" action="{% url 'todos:add' %}">
-        {% csrf_token %}
-        <div class="form-row">
-          <div class="col-md-6">
-            <input type="text" class="form-control" name="title" placeholder="Do laundry" required>
-          </div>
-          <div class="col-md-6">
-            <button type="submit" name="submit" class="btn btn-outline-primary">
-              Add
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-  <hr />
+  
+  
 
   <!-- todo list row -->
-  <div class="row">
+  <div class="pt-4 row">
     <div class="offset-md-2 col-lg-6">
       <div class="list-group">
         {% for todo in todo_list %}
@@ -57,6 +41,25 @@
         </div>
         {% endfor %}
       </div>
+
+      <div class="pt-4 list-group-item border-0">
+       
+          <form method="post" action="{% url 'todos:add' %}">
+            {% csrf_token %}
+            <div class="form-row">
+              <div class="col-md-6 p-0">
+                <input type="text" class="form-control" name="title" placeholder="Add todo item here" required>
+              </div>
+              <div class="p-0 col-md-6">
+                <button type="submit" name="submit" class="btn btn-primary">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+        
+      </div>
+
     </div>
   </div>
 </div>
